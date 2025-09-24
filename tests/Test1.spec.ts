@@ -4,13 +4,13 @@ import AccountPage from './pages/AccountPage';
 import ShopPage from './pages/ShopPage';
 import CartPage from './pages/CartPage';
 
-test('Goto Home Page and perform actions (POM)', async ({ page }) => {
+test('Apply Discount Coupons Codes (POM)', async ({ page }) => {
     const home = new HomePage(page as Page);
     const account = new AccountPage(page as Page);
     const shop = new ShopPage(page as Page);
     const cart = new CartPage(page as Page);
 
-    await home.goto('https://www.edgewordstraining.co.uk/demo-site/');
+    await home.goto('');
     await home.dismissCookies();
 
     // Login flow

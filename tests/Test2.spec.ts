@@ -12,7 +12,7 @@ test('Test 2 (POM)', async ({ page }) => {
     const cart = new CartPage(page as Page);
     const checkout = new CheckoutPage(page as Page);
 
-    await home.goto('https://www.edgewordstraining.co.uk/demo-site/');
+    await home.goto('');
     await home.dismissCookies();
 
     // Login flow

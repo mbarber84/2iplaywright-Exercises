@@ -4,7 +4,7 @@ import AccountPage from './pages/AccountPage';
 import ShopPage from './pages/ShopPage';
 import CartPage from './pages/CartPage';
 
-test('Apply Discount Coupons Codes (POM)', async ({ page }) => {
+test('Test 1 Apply Discount Coupons Codes (POM)', async ({ page }) => {
     const home = new HomePage(page as Page);
     const account = new AccountPage(page as Page);
     const shop = new ShopPage(page as Page);

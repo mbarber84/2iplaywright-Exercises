@@ -35,5 +35,6 @@ export default class CheckoutPage extends BasePage {
     async placeOrder() {
         await this.page.getByRole('button', { name: 'Place order' }).click();
     }
+    
 
 }

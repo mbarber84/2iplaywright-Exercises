@@ -4,6 +4,8 @@ import AccountPage from './pages/AccountPage';
 import ShopPage from './pages/ShopPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import OrderReceivedPage from './pages/OrderReceivedPage';
+import OrdersPage from './pages/OrdersPage';
 
 test('Test 2 (POM)', async ({ page }) => {
     const home = new HomePage(page as Page);
@@ -11,6 +13,8 @@ test('Test 2 (POM)', async ({ page }) => {
     const shop = new ShopPage(page as Page);
     const cart = new CartPage(page as Page);
     const checkout = new CheckoutPage(page as Page);
+    const orderReceived = new OrderReceivedPage(page);
+    const ordersPage = new OrdersPage(page);
 
     await home.goto('');
     await home.dismissCookies();
@@ -39,4 +43,15 @@ test('Test 2 (POM)', async ({ page }) => {
         email: 'hello@2itesting.co.uk'
     });
     await checkout.placeOrder();
+    
+ // Capture order number from confirmation page
+  const receivedOrderNumber = await orderReceived.getOrderNumber();
+
+  // Navigate to My Account orders
+  await page.goto('https://www.edgewordstraining.co.uk/demo-site/my-account/orders/');
+  const accountOrderNumber = await ordersPage.getLatestOrderNumber();
+
+  // Compare
+  expect(receivedOrderNumber).toBe(accountOrderNumber);
+
 });
